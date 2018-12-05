@@ -1,0 +1,36 @@
+<div class="loader" *ngIf="isLoading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+<div  *ngIf="!isLoading">
+  <div class="heading">
+    <span class="title">URL Shortener</span>
+  </div>
+
+  <div class="topContainer">
+    <h4>Analytics data for <a href={{analytics}} target="_blank">{{analytics}}</a></h4>
+    <h6>Created {{created}}</h6>
+    <h6>Original URL: <a href={{original}} target="_blank">{{original}}</a></h6>
+  </div>
+
+  <div class="container-fluid chart-container">
+    <mat-card class="totalClicks">
+      <h6>Total Clicks</h6>
+      <h1>{{totalClicks}}</h1>
+    </mat-card>
+
+    <app-line-chart [data]="lineChartData" [labels]="lineChartLabels" ></app-line-chart>
+
+    <div class="row">
+      <div class="col-lg-6 p-5">
+        <h2>Browser</h2>
+        <app-pie-chart  [data]="pieChartData" [labels]="pieChartLabels"></app-pie-chart>
+      </div>
+      
+      <div class="col-lg-6 p-5">
+        <h2>Platform</h2>
+        <app-bar-chart [data]="barChartData" [labels]="barChartLabels"></app-bar-chart>
+      </div>
+    </div>   
+  </div>
+</div>

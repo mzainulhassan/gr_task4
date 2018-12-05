@@ -1,0 +1,51 @@
+<div>
+  <div class="heading">
+    <span class="title">URL Shortener</span>
+  </div>
+
+  <div class="simplify">
+    <span class="title">Simplify your links</span>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <input class="form-control input-lg" id="inputlg" type="text" placeholder="Your original URL here" [(ngModel)]="inputURL">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <button mat-raised-button (click)="sendURL()">SHORTEN URL</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader" *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+
+  <div class="table" *ngIf="!isLoading">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="originalURL">
+        <mat-header-cell *matHeaderCellDef> Original URL </mat-header-cell>
+        <mat-cell *matCellDef="let element"><a href="{{element.originalURL}}" target="_blank">{{element.originalURL}}</a></mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="created">
+        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.created | date:"MM/dd/yyyy"}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="shortURL">
+        <mat-header-cell *matHeaderCellDef> Short URL </mat-header-cell>
+        <mat-cell *matCellDef="let element"><a [routerLink]="["/dashboard", element.urlID]">{{element.shortURL}}</a></mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="allClicks">
+        <mat-header-cell *matHeaderCellDef> All Clicks </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.allClicks}} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+</div>

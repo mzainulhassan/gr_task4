@@ -1,0 +1,36 @@
+
+.heading{
+    background-color: lightgray;
+    padding: 1em;
+    span{
+        font-size: 2em;
+        color: grey;
+    }
+}
+
+.simplify{
+    background-color: gray;
+    padding: 2em 5em;
+    span{
+        font-size: 1.5em;
+        color: white;
+    }
+    .form-control, button{
+        margin: 1em 0;
+    }
+}
+
+.table{
+    background-color: lightgray;
+    padding: 5em;
+    table {
+        width: 100%;
+      }
+}
+
+.loader{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,40 @@
+
+.heading{
+    background-color: lightgray;
+    padding: 1em;
+    span{
+        font-size: 2em;
+        color: grey;
+    }
+}
+
+.topContainer{
+    background-color: gray;
+    padding: 2em 5em;
+    color: white; 
+
+    a{
+        color: black;
+        text-decoration: underline;
+    }
+}
+
+.totalClicks{
+    margin: 1em;
+    display: inline-block;
+}
+
+.chart-container{
+    padding: 5em;
+}
+
+.loader{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .mat-progress-spinner circle {
+        stroke: lightgray;
+    }
+}
